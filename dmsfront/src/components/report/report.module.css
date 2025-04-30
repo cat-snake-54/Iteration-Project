@@ -1,24 +1,17 @@
-:root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-  
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #0f0e0e;
-  
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
+
   body {
     margin: 0;
     display: flex;
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+
+    background-image: 
+    url('https://www.transparenttextures.com/patterns/old-husks.png'),
+    linear-gradient(#e9e3d5, #e9e3d5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: repeat;
   }
   
   h1 {
@@ -31,6 +24,7 @@
     font-size: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
+    color: #012039;
   }
   
   button {
@@ -40,7 +34,7 @@
     font-size: 0.8em;
     font-weight: 500;
     font-family: inherit;
-    color: #0f0e0e;
+    color: #012039;
     background-color: #fff8f8;
     cursor: pointer;
     transition: border-color 0.25s;
@@ -71,3 +65,12 @@
   .createForm button {
     margin: 0.5em;
   }
+
+  .logo {
+    height: 20em;
+    padding: 1em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+
+  
