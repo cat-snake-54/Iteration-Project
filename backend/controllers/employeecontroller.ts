@@ -19,7 +19,7 @@ employeeController.submitEmployee = (req, res, next) => {
 
       return next();
     })
-    .catch((err: Error) => {
+    .catch((err: any) => {
       console.error('Error with submitEmployee', err.message);
       res.status(500).json({ error: 'Submit Employee failed' });
     });
