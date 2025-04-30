@@ -1,5 +1,4 @@
-import models from '../models/employeemodel.js';
-const { Employee } = models;
+import Employee from '../models/employeemodel.js';
 
 const employeeController = {};
 
