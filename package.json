@@ -20,11 +20,15 @@
   "homepage": "https://github.com/cat-snake-54/Iteration-Project#readme",
   "description": "",
   "dependencies": {
-    "mongodb": "^6.16.0",
-    "ts-node": "^10.9.2"
+    "dotenv": "^16.5.0",
+    "mongodb": "^6.16.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.1"
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.1",
+    "cross-env": "^7.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

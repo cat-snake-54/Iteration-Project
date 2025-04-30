@@ -2,12 +2,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import cors from 'cors';
-
 import express from 'express';
-
+import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
-
-import employeeRoute from './routes/employeeroute.js';
+import employeeRoute from './routes/employeeroute.ts';
 
 const app = express();
 app.use(cors());
@@ -17,21 +15,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', employeeRoute);
 
-app.use((req, res) => {
+app.use((req: Request, res: Response) => {
   res.status(404).send('Not Found');
 });
 
 /**
  * Global error handler
  */
-app.use((err, req, res, next) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
-  res.status(500).send({ error: err });
+  res.status(500).send({ error: err.message });
 });
 
 // connect DB
 
 const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  throw new Error('MONGO_URI is not defined');
+}
+
 mongoose
   .connect(MONGO_URI, {
     // options for the connect method to parse the URI
@@ -44,7 +47,9 @@ mongoose
   .catch((err) => console.log('👎🏻👎🏻 MongoDB connection error:', err.message));
 
 // Listener
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, '0.0.0.0', () =>
   console.log(`🎁🎁🎁 Server running on port ${PORT}`)
 );
+
+export default app;

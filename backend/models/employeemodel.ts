@@ -1,19 +1,25 @@
-// Require mongoose
-// need to install types
-// TypeScript is not aware of the Node.js environment and its built-in functions, including require.
+import mongoose, { Schema, Document } from 'mongoose';
 
-// To fix this issue, you need to install the type definitions for Node.js using the command npm i --save-dev @types/node
-import mongoose from 'mongoose';
+// Define type
+type EmployeeType = {
+  firstName: string;
+  lastName: string;
+  role: string;
+  age: number;
+};
 
-const Schema = mongoose.Schema;
+// Extend Document to get Mongoose Document methods and metadata
+type EmployeeDocument = EmployeeType & Document;
 
-const employeeSchema = new Schema({
+// Define schema
+const employeeSchema = new Schema<EmployeeDocument>({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   role: { type: String, required: true },
   age: { type: Number, required: true },
 });
 
-const Employee = mongoose.model('Employee', employeeSchema);
+// Create model
+const Employee = mongoose.model<EmployeeDocument>('Employee', employeeSchema);
 
 export default Employee;

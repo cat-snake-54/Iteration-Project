@@ -1,5 +1,5 @@
 import express from 'express';
-import employeeController from '../controllers/employeecontroller.js';
+import employeeController from '../controllers/employeecontroller.ts';
 const router = express.Router();
 
 router.post('/employee', employeeController.submitEmployee, (req, res) => {

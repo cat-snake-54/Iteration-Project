@@ -1,6 +1,13 @@
-import Employee from '../models/employeemodel.js';
+import Employee from '../models/employeemodel.ts';
+import { Request, Response, NextFunction } from 'express';
 
-const employeeController = {};
+//define type for employeeController
+
+type EmployeeControllerType = {
+  submitEmployee: (req: Request, res: Response, next: NextFunction) => void;
+};
+
+const employeeController: EmployeeControllerType = {} as EmployeeControllerType;
 
 employeeController.submitEmployee = (req, res, next) => {
   const { firstName, lastName, role, age } = req.body;
@@ -12,7 +19,7 @@ employeeController.submitEmployee = (req, res, next) => {
 
       return next();
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       console.error('Error with submitEmployee', err.message);
       res.status(500).json({ error: 'Submit Employee failed' });
     });
