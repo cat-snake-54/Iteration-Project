@@ -31,14 +31,14 @@ function Report() {
 
   return (
     <>
-    <div className={styles.createForm}>
+    <div className={styles.reportContainer}>
       <img className={styles.logo} src="src/assets/catsnake.png" alt="dark cat snake logo"/>
       <h2>Great Compliance, Valued Employee!</h2>
-      <form onSubmit={handleSubmit} className='createForm'>
+      <form onSubmit={handleSubmit} className={styles.createForm}>
         <input type='text' placeholder='First Name' name = 'firstName'/>
         <input type='text' placeholder='Last Name' name = 'lastName'/>
         <input type='text' placeholder='Role' name = 'role'/>
-        <input type='text' placeholder='Your Name' name = 'age'/>
+        <input type='text' placeholder='Age' name = 'age'/>
         <button type='submit'>Submit Colleague for Processing</button>
       </form>
     </div>
