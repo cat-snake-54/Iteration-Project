@@ -6,14 +6,17 @@ import express from 'express';
 import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import employeeRoute from './routes/employeeroute.ts';
+import loginRoute from './routes/loginroute.ts';
 
 const app = express();
 app.use(cors());
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Middleware
 app.use('/', employeeRoute);
+app.use('/', loginRoute);
 
 app.use((req: Request, res: Response) => {
   res.status(404).send('Not Found');
