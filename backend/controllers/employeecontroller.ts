@@ -11,9 +11,10 @@ type EmployeeControllerType = {
 const employeeController: EmployeeControllerType = {} as EmployeeControllerType;
 
 employeeController.submitEmployee = (req, res, next) => {
-  const { firstName, lastName, role, severity } = req.body;
+  const { firstName, lastName, role, age } = req.body;
+  console.log(`🎁 req.body: ${req.body}`);
 
-  Employee.create({ firstName, lastName, role, severity })
+  Employee.create({ firstName, lastName, role, age })
     .then((data) => {
       console.log('Submit employee success at /employee/👌', data);
       res.locals.employeeNew = data;

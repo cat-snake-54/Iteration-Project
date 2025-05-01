@@ -29,7 +29,7 @@ export default function Login() {
         throw new Error(`${action} failed!`);
       }
       const data = await res.json();
-      window.alert('Congratulations for signing up!');
+      window.alert('Your compliance is noted.');
       console.log(`${action} success!`, data);
 
       setGlobalUsername(username);
