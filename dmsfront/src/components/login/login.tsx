@@ -1,4 +1,4 @@
-import {FormEvent} from 'react';
+import { FormEvent } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './login.module.css';
@@ -36,29 +36,29 @@ export default function Login() {
   return (
     <div className={styles.login}>
       <h1>
-        Welcome, valued Employee. <br />
+        <span className={styles.titleWatch}>
+          <img src="../../../public/watching.png" alt="watching tag" className={styles.watching} />
+        </span>
+        Welcome, valued Employee.
+        <span className={styles.titleWatch}>
+          <img src="../../../public/watching.png" alt="watching tag" className={styles.watching} />
+        </span>
+        <br />
         {action}
       </h1>
+      {/*prettier-ignore */}
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">{action}</button>
+        <input className={styles.userName} type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className={styles.password} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className={styles.btns}  type="submit">{action}</button>
 
         <div>
           {action === 'Sign Up' ? (
-            <p>
+            <p className={styles.text}>
               Already have an account?{' '}
-              <button type="button" onClick={() => setAction('Log In')}>
-                Log In
-              </button>
-            </p>
-          ) : (
-            <p>
-              New here?{' '}
-              <button type="button" onClick={() => setAction('Sign Up')}>
-                Sign Up
-              </button>
-            </p>
+              <button className={styles.btns} type="button" onClick={() => setAction('Log In')}>
+                Log In</button></p>) 
+                : (<p className={styles.text}>New here?{' '}<button className={styles.btns} type="button" onClick={() => setAction('Sign Up')}>Sign Up</button></p>
           )}
         </div>
       </form>

@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 import styles from './profile.module.css';
 
+type Employee = {
+  firstName: string;
+  lastName: string;
+  role: string;
+  age: number;
+};
+
 export default function Profile() {
-  const [employees, setEmployees] = useState<[]>([]);
+  const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const getEmployees= async () => {
+    const getEmployees = async () => {
       try {
-        const response = await fetch('http://localhost:3000/employees');
+        const response = await fetch('http://localhost:3000/profile'); //*had to change this to profile and create a route for it.
         if (!response.ok) {
           throw new Error('Failed to fetch employee reports');
         }
@@ -26,13 +33,13 @@ export default function Profile() {
       }
     };
     getEmployees();
-  }, [employees]);
+  }, []); //! removed the employees from the brackets it was calling a loop. we were running getemployees every time employees changed but getEmployees sets employees....
+  //*if you get react hook useEffect ... error (this is an ES lint thing and we can ignore it.)
 
   //*This handles the state changes/notifications of errors
   if (loading) return <h2>Loading Profile...</h2>;
   if (error) return <h2>Error: {error}</h2>;
   if (!employees) return <h2>No employee reports found.</h2>;
-
 
   return (
     <div>
@@ -43,13 +50,14 @@ export default function Profile() {
       <table className={styles.breakdown}>
         <thead>
           <tr>
-            <th>Question</th>
-            <th>Your Answer</th>
-            <th>Correct Answer</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th>Age</th>
           </tr>
         </thead>
         <tbody>
-          {employees.map((item: string | number, index: number) => (
+          {employees.map((item: Employee, index: number) => (
             <tr key={index}>
               <td>{item.firstName}</td>
               <td>{item.lastName}</td>

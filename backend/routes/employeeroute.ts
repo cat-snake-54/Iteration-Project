@@ -7,4 +7,7 @@ router.post('/employee', employeeController.submitEmployee, (req, res) => {
   res.status(200).json('Employee submitted!' + res.locals.employeeNew);
 });
 
+//* added a router to get the employees from database:
+router.get('/profile', employeeController.getEmployees);
+
 export default router;
