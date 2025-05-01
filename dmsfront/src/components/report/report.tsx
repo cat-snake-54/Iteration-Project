@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-
+import Navbar from '../navbar/navBar';
 import styles from './report.module.css';
 
 function Report() {
@@ -31,6 +31,7 @@ function Report() {
 
   return (
     <>
+      <Navbar />
       <div className={styles.reportContainer}>
         <img className={styles.logo} src="src/assets/catsnake.png" alt="dark cat snake logo" />
         <h2>Great Compliance, Valued Employee!</h2>
