@@ -57,8 +57,8 @@ export default function Profile() {
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Role</th>
-            <th>Age</th>
+            <th>Offense Type</th>
+            <th>Severity</th>
           </tr>
         </thead>
         <tbody>

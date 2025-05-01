@@ -29,7 +29,9 @@ export default function Login() {
         throw new Error(`${action} failed!`);
       }
       const data = await res.json();
+      window.alert('Congratulations for signing up!');
       console.log(`${action} success!`, data);
+
       setGlobalUsername(username);
       navigate('/profile');
     } catch (err) {
