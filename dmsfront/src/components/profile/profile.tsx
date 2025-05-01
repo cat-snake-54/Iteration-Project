@@ -16,7 +16,7 @@ export default function Profile() {
   useEffect(() => {
     const getEmployees = async () => {
       try {
-        const response = await fetch('http://localhost:3000/employees');
+        const response = await fetch('http://localhost:3000/profile'); //*had to change this to profile and create a route for it.
         if (!response.ok) {
           throw new Error('Failed to fetch employee reports');
         }
@@ -33,7 +33,8 @@ export default function Profile() {
       }
     };
     getEmployees();
-  }, [employees]);
+  }, []); //! removed the employees from the brackets it was calling a loop. we were running getemployees every time employees changed but getEmployees sets employees....
+  //*if you get react hook useEffect ... error (this is an ES lint thing and we can ignore it.)
 
   //*This handles the state changes/notifications of errors
   if (loading) return <h2>Loading Profile...</h2>;
