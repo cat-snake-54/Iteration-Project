@@ -74,3 +74,73 @@ button:focus-visible {
   will-change: filter;
   transition: filter 300ms;
 }
+
+.directions {
+  color: black;
+}
+
+#myDropdown {
+  height: 2.5em;
+  width: 20em;
+  margin: 0.5em;
+  font-size: 1em;
+  font-family: inherit;
+  padding: 0 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #012039;
+}
+
+.inputBox {
+  height: 2.5em;
+  width: 20em;
+  margin: 0.5em;
+  font-size: 1em;
+  font-family: inherit;
+  padding: 0 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #012039;
+}
+
+.image {
+  width: 50px;
+}
+
+.legend {
+  color: grey;
+}
+
+.legendTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Courier New', monospace;
+  background-color: #0d0d0d;
+  color: #e79512;
+  box-shadow: 0 0 10px #b37e15;
+}
+
+.legendTable th,
+.legendTable td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: left;
+}
+
+.legendTable th {
+  background-color: #1a1a1a;
+  color: #a63737;
+  text-transform: uppercase;
+}
+
+.legendTable tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+.legendTable tr:hover {
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: crosshair;
+}

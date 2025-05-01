@@ -35,6 +35,7 @@ function Report() {
       <div className={styles.reportContainer}>
         <img className={styles.logo} src="src/assets/catsnake.png" alt="dark cat snake logo" />
         <h2>Great Compliance, Valued Employee!</h2>
+        <p className={styles.directions}></p>
         <form onSubmit={handleSubmit} className={styles.createForm}>
           <input className={styles.inputBox} type="text" placeholder="First Name" name="firstName" />
           <input className={styles.inputBox} type="text" placeholder="Last Name" name="lastName" />

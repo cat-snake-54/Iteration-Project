@@ -30,35 +30,6 @@
   cursor: crosshair;
 }
 
-/* corporate  */
-/* .breakdown {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  color: #111;
-  border: 2px solid #ccc;
+.title {
+  margin-top: 125px;
 }
-
-.breakdown th,
-.breakdown td {
-  border: 1px solid #bbb;
-  padding: 10px;
-}
-
-.breakdown th {
-  background-color: #d6d6d6;
-  color: #333;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.breakdown tr:nth-child(even) {
-  background-color: #eaeaea;
-}
-
-.breakdown tr:hover {
-  background-color: #c0c0c0;
-  color: #000;
-  cursor: crosshair;
-} */
