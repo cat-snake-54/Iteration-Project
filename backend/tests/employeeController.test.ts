@@ -21,6 +21,7 @@ describe('employeeController.submitEmployee', () => {
 
     res = {
       locals: {},
+      //* jest.fn creates a mock function and mockreturnthis is the return
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     };
@@ -41,6 +42,18 @@ describe('employeeController.submitEmployee', () => {
       done();
     });
   });
+
+  //* can use with try & Catch or if no promise is returned
+  // it('should return 500 and error message on failure', async () => {
+  //   (Employee.create as jest.Mock).mockRejectedValue(new Error('Database error'));
+
+  //   await employeeController.submitEmployee(req as Request, res as Response, next);
+
+  //   expect(Employee.create).toHaveBeenCalled();
+  //   expect(res.status).toHaveBeenCalledWith(500);
+  //   expect(res.json).toHaveBeenCalledWith({ error: 'Submit Employee failed' });
+  //   expect(next).not.toHaveBeenCalled();
+  // });
 
   it('should return 500 and error message on failure', (done) => {
     (Employee.create as jest.Mock).mockRejectedValue(new Error('Database error'));

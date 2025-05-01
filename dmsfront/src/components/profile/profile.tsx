@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
 import styles from './profile.module.css';
 
+type Employee = {
+  firstName: string;
+  lastName: string;
+  role: string;
+  age: number;
+};
+
 export default function Profile() {
-  const [employees, setEmployees] = useState<[]>([]);
+  const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const getEmployees= async () => {
+    const getEmployees = async () => {
       try {
         const response = await fetch('http://localhost:3000/employees');
         if (!response.ok) {
@@ -33,7 +40,6 @@ export default function Profile() {
   if (error) return <h2>Error: {error}</h2>;
   if (!employees) return <h2>No employee reports found.</h2>;
 
-
   return (
     <div>
       <h1 className={styles.title}>My Profile</h1>
@@ -43,13 +49,14 @@ export default function Profile() {
       <table className={styles.breakdown}>
         <thead>
           <tr>
-            <th>Question</th>
-            <th>Your Answer</th>
-            <th>Correct Answer</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th>Age</th>
           </tr>
         </thead>
         <tbody>
-          {employees.map((item: string | number, index: number) => (
+          {employees.map((item: Employee, index: number) => (
             <tr key={index}>
               <td>{item.firstName}</td>
               <td>{item.lastName}</td>
