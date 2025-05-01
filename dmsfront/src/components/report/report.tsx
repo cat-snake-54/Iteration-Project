@@ -23,6 +23,7 @@ function Report() {
         throw new Error('Report submission failed!');
       }
       //* This line will clear the fields if the form is successful
+      console.log(`🙈can you see this reset?`);
       event.currentTarget.reset();
     } catch (err) {
       console.error('Error in Report.handleSubmit', err);
