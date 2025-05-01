@@ -75,7 +75,8 @@ button:focus-visible {
   transition: filter 300ms;
 }
 
-.directions {
+.directions,
+.directions1 {
   color: black;
 }
 
