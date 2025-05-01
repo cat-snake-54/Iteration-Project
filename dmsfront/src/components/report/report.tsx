@@ -35,10 +35,10 @@ function Report() {
         <img className={styles.logo} src="src/assets/catsnake.png" alt="dark cat snake logo" />
         <h2>Great Compliance, Valued Employee!</h2>
         <form onSubmit={handleSubmit} className={styles.createForm}>
-          <input type="text" placeholder="First Name" name="firstName" />
-          <input type="text" placeholder="Last Name" name="lastName" />
-          <input type="text" placeholder="Role" name="role" />
-          <input type="text" placeholder="Age" name="age" />
+          <input className={styles.inputBox} type="text" placeholder="First Name" name="firstName" />
+          <input className={styles.inputBox} type="text" placeholder="Last Name" name="lastName" />
+          <input className={styles.inputBox} type="text" placeholder="Role" name="role" />
+          <input className={styles.inputBox} type="text" placeholder="Age" name="age" />
           <button type="submit">Submit Colleague for Processing</button>
         </form>
       </div>
