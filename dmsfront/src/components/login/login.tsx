@@ -1,6 +1,9 @@
 import { FormEvent } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../usercontext/userContext';
+
+import Navbar from '../navbar/navBar';
 import styles from './login.module.css';
 
 export default function Login() {
@@ -8,6 +11,7 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { setUsername: setGlobalUsername } = useUser();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,8 +30,8 @@ export default function Login() {
       }
       const data = await res.json();
       console.log(`${action} success!`, data);
-
-      navigate('/');
+      setGlobalUsername(username);
+      navigate('/profile');
     } catch (err) {
       console.error(`Error in ${action}`, err);
     }
@@ -35,13 +39,14 @@ export default function Login() {
 
   return (
     <div className={styles.login}>
+      <Navbar />
       <h1>
         <span className={styles.titleWatch}>
-          <img src="../../../public/watching.png" alt="watching tag" className={styles.watching} />
+          <img src="./watching.png" alt="watching tag" className={styles.watching} />
         </span>
         Welcome, valued Employee.
         <span className={styles.titleWatch}>
-          <img src="../../../public/watching.png" alt="watching tag" className={styles.watching} />
+          <img src="./watching.png" alt="watching tag" className={styles.watching} />
         </span>
         <br />
         {action}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import Navbar from '../navbar/navBar';
 import styles from './profile.module.css';
+import { useUser } from '../usercontext/userContext';
 
 type Employee = {
   firstName: string;
@@ -12,6 +14,8 @@ export default function Profile() {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const { username } = useUser();
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -43,7 +47,8 @@ export default function Profile() {
 
   return (
     <div>
-      <h1 className={styles.title}>My Profile</h1>
+      <Navbar />
+      <h1 className={styles.title}>{username}'s Profile</h1>
 
       {/* Table for Employee Report History */}
       <h2 className={styles.Subtitle}>Employee Report History</h2>
