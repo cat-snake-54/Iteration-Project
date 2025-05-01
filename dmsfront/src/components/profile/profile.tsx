@@ -55,8 +55,8 @@ export default function Profile() {
       <table className={styles.breakdown}>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Reported By:</th>
+            <th>Offender</th>
             <th>Offense Type</th>
             <th>Severity</th>
           </tr>
